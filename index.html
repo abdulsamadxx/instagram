@@ -192,146 +192,41 @@
       outline: 3px solid rgba(30, 144, 255, 0.4);
     }
   .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-  .exact-instagram {
-      background: rgba(255,255,255,0.04);
-      border-radius: 12px;
-      padding: 22px;
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.25);
-    }
-
-    input[type="text"], input[type="password"] {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      height: 46px;
-      font-size: 15px;
-    }
-
-    .insta-btn {
-      border-radius: 10px;
-      background: #0095f6;
-      font-size: 15px;
-      height: 44px;
-    }
-
-    .insta-create {
-      margin-top: 24px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.15);
-      padding: 14px;
-      text-align: center;
-      color: #0095f6;
-      font-weight: 600;
-    }
-
-    .insta-meta {
-      margin-top: 32px;
-      font-size: 12px;
-      opacity: 0.6;
-    }
-  /* PIXEL-PERFECT INSTAGRAM LOGIN UI */
-
-    body {
-      background: #121212;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-    }
-
-    .frame {
-      width: 100%;
-      max-width: 380px;
-      padding-top: 48px;
-    }
-
-    .logo-wrap img {
-      width: 86px;
-      height: 86px;
-    }
-
-    .brand {
-      font-size: 18px;
-      margin-top: 6px;
-      letter-spacing: 0.08em;
-    }
-
-    .exact-instagram {
-      border-radius: 12px;
-      padding: 20px 20px 26px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.03);
-      box-shadow: none;
-    }
-
-    input[type="text"], input[type="password"] {
-      height: 42px;
-      background: #121212;
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 6px;
-      font-size: 14px;
-      padding-left: 12px;
-    }
-
-    .insta-btn {
-      height: 38px;
-      border-radius: 8px;
-      background: #0095f6;
-      font-size: 14px;
-      margin-top: 4px;
-    }
-
-    .forgot {
-      font-size: 12px;
-      margin-top: 14px;
-      color: #b3cad9;
-    }
-
-    .insta-create {
-      border-radius: 10px;
-      padding: 12px;
-      width: 100%;
-      font-size: 14px;
-      margin-top: 30px;
-      border-color: rgba(255,255,255,0.12);
-    }
-
-    .insta-meta {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 11px;
-      opacity: 0.5;
-    }
   </style>
 </head>
 <body>
   <div class="frame">
 
     <div class="topbar">
-      <div class="lang">English (US) ▾</div>
+      <div class="lang" role="button" aria-label="Change language">English (US) ▾</div>
     </div>
 
     <div class="center">
       <div class="logo-wrap">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1200px-Instagram_logo_2016.svg.png" alt="Nanogram Logo" width="96" height="96" />
+        <img src="https://i.ibb.co/d0wTsNMX/Chat-GPT-Image-Dec-9-2025-11-59-02-AM.png" alt="Nanogram Logo" width="88" height="88" />
       </div>
     </div>
 
     <div class="brand">Nanogram</div>
 
-    <div class="card exact-instagram" role="form" aria-label="Login form">
+    <div class="card" role="form" aria-label="Login form">
       <div class="inputs">
-        <input type="text" placeholder="Username, email or mobile number" aria-label="Username, email or mobile number" />
-        <input type="password" placeholder="Password" aria-label="Password" />
-        <button class="btn btn-primary insta-btn">Log in</button>
+        <label>
+          <span class="sr-only">Username, email or mobile number</span>
+          <input type="text" placeholder="Username, email or mobile number" aria-label="Username, email or mobile number" />
+        </label>
+        <label>
+          <span class="sr-only">Password</span>
+          <input type="password" placeholder="Password" aria-label="Password" />
+        </label>
+        <button class="btn btn-primary" aria-label="Log in">Log in</button>
       </div>
 
       <div class="forgot">Forgot password?</div>
+      <div class="create" role="button" aria-label="Create new account">Create new account</div>
     </div>
 
-    <div class="create insta-create">Create new account</div>
-
-    <div class="meta insta-meta">∞ Meta</div>
+    <div class="meta">∞ Meta</div>
   </div>
 </body>
 </html>
