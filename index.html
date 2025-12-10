@@ -1,117 +1,231 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nanogram — Login</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-    :root{
-      --bg:#0f1113;
-      --card:#0f1719;
-      --muted:#9aa4ad;
-      --input:#14181a;
-      --accent:#1e90ff;
-      --outline: rgba(255,255,255,0.08);
-      --glass: rgba(255,255,255,0.02);
+
+    :root {
+      --bg: #0f1113;
+      --card: #0f1719;
+      --muted: #9aa4ad;
+      --input: #14181a;
+      --accent: #1e90ff;
+      --outline: rgba(255, 255, 255, 0.08);
+      --glass: rgba(255, 255, 255, 0.02);
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
       background: linear-gradient(180deg, #0c0f10 0%, #0f1315 100%);
-      color:#e6eef4; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-      display:flex;align-items:center;justify-content:center;padding:28px;
+      color: #e6eef4;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
     }
 
-    /* FIXED → now perfectly fits on all mobile screens */
-    .frame{
-      width:100%;
-      max-width:420px;
-      min-height:100vh;       /* FIX (no more zoom) */
-      background:transparent;
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      padding:28px 20px;
+    .frame {
+      width: 100%;
+      max-width: 420px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 28px 20px;
     }
 
-    .topbar{width:100%;display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:32px}
-    .lang{color:var(--muted);font-size:14px}
+    .topbar {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
 
-    .center{width:100%;display:flex;flex-direction:column;align-items:center;margin-top:12px}
+    .lang {
+      color: var(--muted);
+      font-size: 14px;
+    }
 
-    .logo-wrap{width:88px;height:88px;border-radius:22px;display:flex;align-items:center;justify-content:center;margin-bottom:24px}
-    
-    .brand{font-weight:600;letter-spacing:0.12em;color:#e6eef4;margin-bottom:18px}
+    .center {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 12px;
+    }
 
-    .card{
-      width:100%;
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:14px;
-      padding:18px;
-      border:1px solid var(--outline);
+    .logo-wrap {
+      width: 88px;
+      height: 88px;
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .brand {
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: #e6eef4;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+
+    .card {
+      width: 100%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      border-radius: 14px;
+      padding: 18px;
+      border: 1px solid var(--outline);
       backdrop-filter: blur(6px);
     }
 
-    .inputs{display:flex;flex-direction:column;gap:14px}
-    input[type="text"], input[type="password"]{
-      width:100%;
-      padding:16px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,0.04);
-      background:var(--input);
-      color:#e6eef4;
-      font-size:15px;
-      outline:none
+    .inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
     }
-    input::placeholder{color:var(--muted)}
 
-    .btn{width:100%;padding:14px;border-radius:28px;border:none;font-weight:600;font-size:16px;cursor:pointer}
-    .btn-primary{background:linear-gradient(90deg,#1987ff,#2fb3ff);color:#fff}
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      background: var(--input);
+      color: #e6eef4;
+      font-size: 15px;
+      outline: none;
+    }
 
-    .forgot{text-align:center;color:var(--muted);margin-top:12px}
-    .create{width:100%;margin-top:28px;padding:12px;border-radius:28px;border:1.6px solid rgba(47,179,255,0.18);text-align:center;color:#78b9ff;font-weight:600}
+    input::placeholder {
+      color: var(--muted);
+    }
 
-    .meta{margin-top:auto;color:var(--muted);font-size:13px;display:flex;align-items:center;gap:8px}
+    .btn {
+      width: 100%;
+      padding: 14px;
+      border-radius: 28px;
+      border: none;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+    }
 
-    /* MOBILE IMPROVEMENTS */
-    @media (max-width:420px){
-      body { padding: 16px; }
-      .logo-wrap { margin-bottom: 16px; transform: scale(0.9); }
-      .topbar { margin-bottom: 20px; }
-      .card { padding: 16px; }
+    .btn-primary {
+      background: linear-gradient(90deg, #1987ff, #2fb3ff);
+      color: #fff;
+    }
+
+    .forgot {
+      text-align: center;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    .create {
+      width: 100%;
+      margin-top: 28px;
+      padding: 12px;
+      border-radius: 28px;
+      border: 1.6px solid rgba(47, 179, 255, 0.18);
+      text-align: center;
+      color: #78b9ff;
+      font-weight: 600;
+    }
+
+    .meta {
+      margin-top: auto;
+      color: var(--muted);
+      font-size: 13px;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Responsive improvements */
+    @media (max-width: 420px) {
+      body {
+        padding: 16px;
+      }
+      .logo-wrap {
+        margin-bottom: 16px;
+        transform: scale(0.9);
+      }
+      .topbar {
+        margin-bottom: 20px;
+      }
+      .card {
+        padding: 16px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .frame {
+        padding-top: 60px;
+      }
+      .card {
+        padding: 24px;
+      }
+    }
+
+    /* Accessibility improvements */
+    input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(30, 144, 255, 0.3);
+    }
+
+    button:focus {
+      outline: 3px solid rgba(30, 144, 255, 0.4);
     }
   </style>
 </head>
 <body>
   <div class="frame">
-    
+
     <div class="topbar">
-      <div class="lang">English (US) ▾</div>
+      <div class="lang" role="button" aria-label="Change language">English (US) ▾</div>
     </div>
 
     <div class="center">
       <div class="logo-wrap">
-        <img src="https://i.ibb.co/d0wTsNMX/Chat-GPT-Image-Dec-9-2025-11-59-02-AM.png" alt="Nanogram Logo" style="width:88px;height:88px;object-fit:contain;" />
+        <img src="https://i.ibb.co/d0wTsNMX/Chat-GPT-Image-Dec-9-2025-11-59-02-AM.png" alt="Nanogram Logo" width="88" height="88" />
       </div>
     </div>
 
     <div class="brand">Nanogram</div>
 
-    <div class="card">
+    <div class="card" role="form" aria-label="Login form">
       <div class="inputs">
-        <input type="text" placeholder="Username, email or mobile number" />
-        <input type="password" placeholder="Password" />
-        <button class="btn btn-primary">Log in</button>
+        <label>
+          <span class="sr-only">Username, email or mobile number</span>
+          <input type="text" placeholder="Username, email or mobile number" aria-label="Username, email or mobile number" />
+        </label>
+        <label>
+          <span class="sr-only">Password</span>
+          <input type="password" placeholder="Password" aria-label="Password" />
+        </label>
+        <button class="btn btn-primary" aria-label="Log in">Log in</button>
       </div>
 
       <div class="forgot">Forgot password?</div>
-      <div class="create">Create new account</div>
+      <div class="create" role="button" aria-label="Create new account">Create new account</div>
     </div>
 
-    <div class="meta">&infin; Meta</div>
+    <div class="meta">∞ Meta</div>
   </div>
 </body>
 </html>
