@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Instagram Style Login - Responsive</title>
+  <title>Instagram Style Login - Bigger UI</title>
 
   <style>
     body {
@@ -20,11 +20,11 @@
 
     .card {
       width: 100%;
-      max-width: 360px;
+      max-width: 430px;  /* 🔥 Bigger card */
       background: #1a1d25;
-      padding: 30px 24px;
-      border-radius: 22px;
-      box-shadow: 0 0 40px rgba(0, 0, 0, 0.45);
+      padding: 45px 35px;  /* 🔥 More padding */
+      border-radius: 26px;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.55);
       animation: fadeIn 0.7s ease-out;
     }
 
@@ -34,20 +34,20 @@
     }
 
     .insta-logo {
-      width: 85px;
+      width: 115px; /* 🔥 Bigger logo */
       display: block;
-      margin: 0 auto 22px auto;
+      margin: 0 auto 30px auto;
     }
 
     input {
-      width: 92%;
-      padding: 14px;
-      margin-top: 12px;
-      border-radius: 10px;
+      width: 100%;
+      padding: 18px; /* 🔥 Bigger input height */
+      margin-top: 15px;
+      border-radius: 12px;
       border: 1px solid #2b2e36;
       background: #21242d;
       color: white;
-      font-size: 15px;
+      font-size: 18px; /* 🔥 Larger text */
       transition: 0.25s ease;
     }
 
@@ -55,37 +55,37 @@
       border-color: #0095f6;
       background: #272b34;
       outline: none;
-      box-shadow: 0 0 8px rgba(0, 149, 246, 0.3);
+      box-shadow: 0 0 10px rgba(0, 149, 246, 0.3);
     }
 
     .login-btn {
       width: 100%;
-      padding: 15px;
-      margin-top: 18px;
+      padding: 18px; /* 🔥 Bigger button */
+      margin-top: 22px;
       background: linear-gradient(135deg, #0095f6, #006fe3);
       border: none;
-      border-radius: 12px;
+      border-radius: 14px;
       color: white;
-      font-size: 17px;
-      font-weight: 600;
+      font-size: 20px; /* 🔥 Larger text */
+      font-weight: 700;
       cursor: pointer;
       transition: 0.2s ease;
-      box-shadow: 0 4px 15px rgba(0, 149, 246, 0.35);
+      box-shadow: 0 4px 18px rgba(0, 149, 246, 0.35);
     }
 
     .login-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 149, 246, 0.55);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 149, 246, 0.55);
     }
 
     .link {
       display: block;
-      margin-top: 15px;
+      margin-top: 18px;
       color: #9eb8ff;
       text-decoration: none;
-      font-size: 14px;
-      transition: 0.2s ease;
+      font-size: 16px; /* 🔥 Bigger text */
       text-align: center;
+      transition: 0.2s ease;
     }
 
     .link:hover {
@@ -93,15 +93,15 @@
     }
 
     .create-btn {
-      margin-top: 28px;
-      padding: 14px;
+      margin-top: 35px;
+      padding: 18px; /* 🔥 Bigger button */
       width: 100%;
       background: transparent;
-      border-radius: 12px;
+      border-radius: 14px;
       border: 1px solid #3c404b;
       color: #00a2ff;
-      font-weight: 600;
-      font-size: 16px;
+      font-weight: 700;
+      font-size: 18px; /* 🔥 Larger text */
       cursor: pointer;
       transition: 0.25s ease;
     }
@@ -112,61 +112,32 @@
     }
 
     .meta {
-      margin-top: 22px;
+      margin-top: 30px;
       text-align: center;
-      font-size: 14px;
+      font-size: 16px; /* 🔥 Bigger text */
       opacity: 0.55;
       letter-spacing: 1px;
     }
 
-    /* ----------------------------- */
-    /* 📱 MOBILE RESPONSIVE DESIGN   */
-    /* ----------------------------- */
-
+    /* Mobile Responsive */
     @media (max-width: 480px) {
       .card {
-        padding: 22px 18px;
-        border-radius: 16px;
+        padding: 30px 18px;
+        max-width: 100%;
       }
-
       .insta-logo {
-        width: 70px;
-        margin-bottom: 18px;
+        width: 90px;
       }
-
       input {
-        padding: 12px;
-      }
-
-      .login-btn {
-        padding: 14px;
+        padding: 15px;
         font-size: 16px;
       }
-
+      .login-btn,
       .create-btn {
-        padding: 12px;
-        font-size: 15px;
+        padding: 16px;
+        font-size: 18px;
       }
     }
-
-    @media (max-width: 360px) {
-      .card {
-        padding: 18px 14px;
-      }
-
-      input {
-        font-size: 14px;
-      }
-
-      .login-btn {
-        font-size: 15px;
-      }
-
-      .create-btn {
-        font-size: 14px;
-      }
-    }
-
   </style>
 </head>
 
