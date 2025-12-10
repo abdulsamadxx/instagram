@@ -1,127 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Full Screen Login</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Mobile Full Screen Login</title>
 
-  <style>
-    body {
-      background: #0f1115;
-      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      width: 100vw;
-    }
+<style>
+  /* Prevent bounce + safe area for notch devices */
+  body {
+    margin: 0;
+    padding: 0;
+    background: #0f1115;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    height: 100svh; /* Best for Mobile fullscreen */
+    width: 100vw;
+    display: flex;
+  }
 
-    /* FULL SCREEN CARD */
-    .card {
-      height: 100vh;
-      width: 100vw;
-      background: #1a1d25;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 30px;
-      box-sizing: border-box;
-      animation: fadeIn 0.7s ease-out;
-    }
+  /* FULL SCREEN CARD */
+  .card {
+    width: 100vw;
+    height: 100svh;
+    background: #1a1d25;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: env(safe-area-inset-top) 24px env(safe-area-inset-bottom) 24px;
+    box-sizing: border-box;
+    animation: fadeIn 0.6s ease-out;
+  }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-    .insta-logo {
-      width: 90px;
-      display: block;
-      margin-bottom: 25px;
-    }
+  .insta-logo {
+    width: 90px;
+    max-width: 28vw;
+    margin-bottom: 28px;
+  }
 
-    input {
-      width: 100%;
-      max-width: 350px;
-      padding: 14px;
-      margin-top: 12px;
-      border-radius: 10px;
-      border: 1px solid #2b2e36;
-      background: #21242d;
-      color: white;
+  input {
+    width: 100%;
+    max-width: 360px;
+    padding: 15px;
+    margin-top: 14px;
+    font-size: 16px;
+    border-radius: 12px;
+    border: 1px solid #2b2e36;
+    background: #21242d;
+    color: white;
+    transition: 0.2s ease;
+  }
+
+  input:focus {
+    border-color: #0095f6;
+    background: #272b34;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 149, 246, 0.35);
+  }
+
+  .login-btn {
+    width: 100%;
+    max-width: 360px;
+    padding: 15px;
+    margin-top: 22px;
+    background: linear-gradient(135deg, #0095f6, #006fe3);
+    border: none;
+    border-radius: 14px;
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 149, 246, 0.4);
+    transition: 0.2s ease;
+  }
+
+  .login-btn:active {
+    transform: scale(0.97);
+  }
+
+  .link {
+    margin-top: 16px;
+    text-decoration: none;
+    color: #9eb8ff;
+    font-size: 15px;
+  }
+
+  .create-btn {
+    width: 100%;
+    max-width: 360px;
+    padding: 15px;
+    margin-top: 26px;
+    background: transparent;
+    border-radius: 14px;
+    border: 1px solid #3c404b;
+    color: #00a2ff;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.25s ease;
+  }
+
+  .meta {
+    margin-top: 26px;
+    font-size: 14px;
+    opacity: 0.55;
+    letter-spacing: 1px;
+  }
+
+  /* EXTRA MOBILE OPTIMIZATION */
+  @media (max-width: 420px) {
+    input, .login-btn, .create-btn {
       font-size: 15px;
-      transition: 0.25s ease;
+      padding: 13px;
     }
-
-    input:focus {
-      border-color: #0095f6;
-      background: #272b34;
-      outline: none;
-      box-shadow: 0 0 8px rgba(0, 149, 246, 0.3);
+    .insta-logo {
+      width: 75px;
+      margin-bottom: 22px;
     }
+  }
 
-    .login-btn {
-      width: 100%;
-      max-width: 350px;
-      padding: 15px;
-      margin-top: 18px;
-      background: linear-gradient(135deg, #0095f6, #006fe3);
-      border: none;
-      border-radius: 12px;
-      color: white;
-      font-size: 17px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.2s ease;
-      box-shadow: 0 4px 15px rgba(0, 149, 246, 0.35);
-    }
-
-    .link {
-      margin-top: 15px;
-      color: #9eb8ff;
-      text-decoration: none;
+  @media (max-width: 340px) {
+    input, .login-btn, .create-btn {
       font-size: 14px;
-      transition: 0.2s ease;
+      padding: 12px;
     }
+    .insta-logo {
+      width: 65px;
+    }
+  }
+</style>
 
-    .create-btn {
-      margin-top: 28px;
-      padding: 14px;
-      width: 100%;
-      max-width: 350px;
-      background: transparent;
-      border-radius: 12px;
-      border: 1px solid #3c404b;
-      color: #00a2ff;
-      font-weight: 600;
-      font-size: 16px;
-      cursor: pointer;
-      transition: 0.25s ease;
-    }
-
-    .meta {
-      margin-top: 22px;
-      font-size: 14px;
-      opacity: 0.55;
-      letter-spacing: 1px;
-    }
-  </style>
 </head>
-
 <body>
-  <div class="card">
-    <img class="insta-logo" src="https://i.ibb.co/d0wTsNMX/Chat-GPT-Image-Dec-9-2025-11-59-02-AM.png" alt="Logo" />
 
-    <input type="text" placeholder="Username, email or phone" />
-    <input type="password" placeholder="Password" />
+<div class="card">
+  <img class="insta-logo" src="https://i.ibb.co/d0wTsNMX/Chat-GPT-Image-Dec-9-2025-11-59-02-AM.png" alt="Logo" />
 
-    <button class="login-btn">Log in</button>
+  <input type="text" placeholder="Username, email or phone" />
+  <input type="password" placeholder="Password" />
 
-    <a class="link" href="#">Forgot password?</a>
+  <button class="login-btn">Log in</button>
 
-    <button class="create-btn">Create new account</button>
+  <a class="link" href="#">Forgot password?</a>
 
-    <div class="meta">Meta</div>
-  </div>
+  <button class="create-btn">Create new account</button>
+
+  <div class="meta">Meta</div>
+</div>
+
 </body>
 </html>
