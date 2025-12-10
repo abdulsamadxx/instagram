@@ -47,7 +47,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 4px; /* Reduced space */
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     /* Shift everything except topbar */
@@ -88,18 +91,11 @@
       font-weight: 600;
       letter-spacing: 0.12em;
       color: #e6eef4;
-      margin-bottom: 18px;
+      margin-bottom: 32px;
       text-align: center;
     }
 
-    .card {
-      width: 100%;
-      background: rgba(255, 255, 255, 0.03);
-      border-radius: 22px;
-      padding: 24px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      backdrop-filter: blur(8px);
-    }
+    /* card removed */
 
     .inputs {
       display: flex;
@@ -195,7 +191,7 @@
 <body>
   <div class="frame">
     <div class="topbar">
-      <div class="lang" role="button" aria-label="Change language">English (US) ▾</div>
+      <div class="lang" role="button" aria-label="Change language">English (US) ▾
     </div>
 
     <div class="content-wrapper">
@@ -207,7 +203,7 @@
 
       <div class="brand">Nanogram</div>
 
-      <div class="card" role="form" aria-label="Login form">
+      
         <div class="inputs">
           <label>
             <span class="sr-only">Username, email or mobile number</span>
