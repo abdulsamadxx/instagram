@@ -1,229 +1,96 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nanogram — Login</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instagram Style Login</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-
-    :root {
-      --bg: #0f1113;
-      --card: #0f1719;
-      --muted: #9aa4ad;
-      --input: #14181a;
-      --accent: #1e90ff;
-      --outline: rgba(255, 255, 255, 0.08);
-      --glass: rgba(255, 255, 255, 0.02);
-    }
-
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-
     body {
+      background-color: #1c1f26;
+      font-family: Arial, sans-serif;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       margin: 0;
-      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      background: #1c1f23;
-      color: #e6eef4;
-      -webkit-font-smoothing: antialiased;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      padding: 28px;
     }
 
-    .frame {
-      width: 100%;
-      max-width: 420px;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 28px 20px;
+    .insta-logo {
+      width: 90px;
+      margin-bottom: 40px;
     }
 
-    .topbar {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    /* Shift everything except topbar */
-    .content-wrapper {
-      transform: scale(1.14);
-      transform-origin: top center;
-      margin-top: 40px; /* Moves entire content slightly down */
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .lang {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .center {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 12px;
-    }
-
-    .logo-wrap {
-      width: 72px;
-      height: 72px;
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 40px 0 32px 0;
-    }
-
-    .brand {
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      color: #e6eef4;
-      margin-bottom: 32px;
+    .container {
+      width: 90%;
+      max-width: 350px;
       text-align: center;
     }
 
-    /* card removed */
-
-    .inputs {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    input[type="text"], input[type="password"] {
-      width: 100%;
-      padding: 16px;
-      border-radius: 14px;
-      border: 1px solid #3a3f45;
-      background: transparent;
-      color: #e6eef4;
-      font-size: 15px;
-    }
-    }
-
-    input::placeholder { color: var(--muted); }
-
-    .btn {
+    input {
       width: 100%;
       padding: 14px;
-      border-radius: 28px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: 1px solid #333;
+      background-color: #2a2f38;
+      color: white;
+      font-size: 15px;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 14px;
+      margin-top: 10px;
+      background-color: #0095f6;
       border: none;
-      font-weight: 600;
+      border-radius: 25px;
+      color: white;
       font-size: 16px;
       cursor: pointer;
     }
 
-    .btn-primary {
-      background: #0276FD;
-      color: #fff;
-      border-radius: 28px;
-      padding: 14px;
+    .link {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #b0b0b0;
+      text-decoration: none;
+      display: block;
     }
 
-    .forgot {
-      text-align: center;
-      color: var(--muted);
-      margin-top: 12px;
-    }
-
-    .create {
-      margin-top: 40px;
-      padding: 14px;
-      border-radius: 28px;
-      border: 1px solid #3a3f45;
-      color: #78b9ff;
-      text-align: center;
+    .create-btn {
+      margin-top: 30px;
+      padding: 12px;
+      background-color: transparent;
+      border: 1px solid #5a5a5a;
+      border-radius: 25px;
+      color: #0095f6;
+      font-size: 16px;
       width: 100%;
-      font-weight: 600;
+      cursor: pointer;
     }
 
     .meta {
-      margin-top: auto;
-      color: var(--muted);
-      font-size: 13px;
-      display: flex;
-      justify-content: center;
-    }
-
-    @media (max-width: 420px) {
-      body { padding: 16px; }
-      .logo-wrap { margin-bottom: 16px; transform: scale(0.9); }
-      .topbar { margin-bottom: 12px; }
-      .card { padding: 16px; }
-    }
-
-    @media (min-width: 768px) {
-      .frame { padding-top: 60px; }
-      .card { padding: 24px; }
-    }
-
-    input:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 2px rgba(30, 144, 255, 0.3);
-    }
-
-    button:focus { outline: 3px solid rgba(30, 144, 255, 0.4); }
-
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
+      margin-top: 30px;
+      opacity: 0.6;
     }
   </style>
 </head>
 <body>
-  <div class="frame">
-    <div class="topbar">
-      <div class="lang" role="button" aria-label="Change language">English (US) ▾
-    </div>
+  <div class="container">
+    <img class="insta-logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo" />
 
-    <div class="content-wrapper">
-      <div class="center">
-        <div class="logo-wrap">
-          <img src="https://i.ibb.co/d0wTsNMX/Chat-GPT-Image-Dec-9-2025-11-59-02-AM.png" alt="Nanogram Logo" width="88" height="88" />
-        </div>
-      </div>
+    <input type="text" placeholder="Username, email or mobile number" />
+    <input type="password" placeholder="Password" />
 
-      <div class="brand">Nanogram</div>
+    <button class="login-btn">Log in</button>
 
-      
-        <div class="inputs">
-          <label>
-            <span class="sr-only">Username, email or mobile number</span>
-            <input type="text" placeholder="Username, email or mobile number" aria-label="Username, email or mobile number" />
-          </label>
-          <label>
-            <span class="sr-only">Password</span>
-            <input type="password" placeholder="Password" aria-label="Password" />
-          </label>
-          <button class="btn btn-primary" aria-label="Log in">Log in</button>
-        </div>
+    <a class="link" href="#">Forgot password?</a>
 
-        <div class="forgot">Forgot password?</div>
-        <div class="create" role="button" aria-label="Create new account">Create new account</div>
-      </div>
+    <button class="create-btn">Create new account</button>
 
-      <div class="meta">∞ Meta</div>
-    </div>
+    <div class="meta">Meta</div>
   </div>
 </body>
 </html>
