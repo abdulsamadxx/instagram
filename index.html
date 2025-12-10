@@ -23,7 +23,7 @@
     body {
       margin: 0;
       font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      background: linear-gradient(180deg, #0c0f10 0%, #0f1315 100%);
+      background: #1c1f23;
       color: #e6eef4;
       -webkit-font-smoothing: antialiased;
       display: flex;
@@ -78,13 +78,13 @@
     }
 
     .logo-wrap {
-      width: 88px;
-      height: 88px;
-      border-radius: 22px;
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 24px;
+      margin: 40px 0 32px 0;
     }
 
     .brand {
@@ -106,12 +106,12 @@
     input[type="text"], input[type="password"] {
       width: 100%;
       padding: 16px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      background: var(--input);
+      border-radius: 14px;
+      border: 1px solid #3a3f45;
+      background: transparent;
       color: #e6eef4;
       font-size: 15px;
-      outline: none;
+    }
     }
 
     input::placeholder { color: var(--muted); }
@@ -127,8 +127,10 @@
     }
 
     .btn-primary {
-      background: linear-gradient(90deg, #1987ff, #2fb3ff);
+      background: #0276FD;
       color: #fff;
+      border-radius: 28px;
+      padding: 14px;
     }
 
     .forgot {
@@ -138,13 +140,13 @@
     }
 
     .create {
-      width: 100%;
-      margin-top: 28px;
-      padding: 12px;
+      margin-top: 40px;
+      padding: 14px;
       border-radius: 28px;
-      border: 1.6px solid rgba(47, 179, 255, 0.18);
-      text-align: center;
+      border: 1px solid #3a3f45;
       color: #78b9ff;
+      text-align: center;
+      width: 100%;
       font-weight: 600;
     }
 
