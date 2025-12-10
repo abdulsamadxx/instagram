@@ -1,103 +1,100 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Telecomena Login</title>
-
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background: #fafafa;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        animation: fadeIn 1s ease-in-out;
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nanogram — Login</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+    :root{
+      --bg:#0f1113;
+      --card:#0f1719;
+      --muted:#9aa4ad;
+      --input:#14181a;
+      --accent:#1e90ff;
+      --outline: rgba(255,255,255,0.08);
+      --glass: rgba(255,255,255,0.02);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(180deg, #0c0f10 0%, #0f1315 100%);
+      color:#e6eef4; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      display:flex;align-items:center;justify-content:center;padding:28px;
     }
 
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
+    .frame{
+      width:100%;max-width:420px;min-height:720px;background:transparent;position:relative;
+      display:flex;flex-direction:column;align-items:center;padding:28px 20px;
     }
 
-    .container {
-        background: white;
-        width: 350px;
-        padding: 40px 30px;
-        border: 1px solid #dbdbdb;
-        text-align: center;
-        border-radius: 10px;
-    }
+    /* top bar */
+    .topbar{width:100%;display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:36px}
+    .back{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid var(--outline)}
+    .lang{color:var(--muted);font-size:14px}
 
-    h1 {
-        font-family: "Segoe Script", cursive;
-        font-size: 40px;
-        margin-bottom: 35px;
-    }
+    /* center area */
+    .center{width:100%;display:flex;flex-direction:column;align-items:center;margin-top:18px}
 
-    .input-box {
-        position: relative;
-        width: 100%;
-        margin-bottom: 15px;
+    /* logo */
+    .logo-wrap{width:88px;height:88px;border-radius:22px;display:flex;align-items:center;justify-content:center;margin-bottom:28px}
+    .logo{
+      width:64px;height:64px;background: radial-gradient(circle at 30% 30%, #ffdf5d 0%, #ff6b6b 18%, #d9159b 36%, #6b27ff 60%);
+      border-radius:18px;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 6px 18px rgba(0,0,0,0.6);
     }
+    .logo:before{content:'';position:absolute;right:9px;top:9px;width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.55)}
+    .logo svg{width:36px;height:36px;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.5));}
 
-    .input-box input {
-        width: 100%;
-        padding: 12px;
-        padding-right: 40px;
-        border: 1px solid #dbdbdb;
-        border-radius: 5px;
-        background: #fafafa;
-        outline: none;
-    }
+    .brand{font-weight:600;letter-spacing:0.12em;color:#e6eef4;margin-bottom:18px}
 
-    .eye-icon {
-        position: absolute;
-        right: 10px;
-        top: 12px;
-        font-size: 18px;
-        cursor: pointer;
-        user-select: none;
-    }
+    /* card */
+    .card{width:100%;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:18px;border:1px solid var(--outline);backdrop-filter: blur(6px);}
+    .inputs{display:flex;flex-direction:column;gap:14px}
+    input[type="text"], input[type="password"]{width:100%;padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);background:var(--input);color:#e6eef4;font-size:15px;outline:none}
+    input::placeholder{color:var(--muted)}
 
-    button {
-        width: 100%;
-        background: #0095f6;
-        color: white;
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        font-weight: bold;
-        cursor: pointer;
-    }
-</style>
+    .btn{width:100%;padding:14px;border-radius:28px;border:none;font-weight:600;font-size:16px;cursor:pointer}
+    .btn-primary{background:linear-gradient(90deg,#1987ff,#2fb3ff);color:#fff}
+    .forgot{text-align:center;color:var(--muted);margin-top:12px}
 
+    .create{width:100%;margin-top:28px;padding:12px;border-radius:28px;border:1.6px solid rgba(47,179,255,0.18);text-align:center;color:#78b9ff;font-weight:600}
+
+    .meta{margin-top:auto;color:var(--muted);font-size:13px;display:flex;align-items:center;gap:8px}
+
+    /* small screens */
+    @media (max-width:420px){.frame{min-height:700px}}
+  </style>
 </head>
 <body>
-
-<div class="container">
-    <h1>Telecomena</h1>
-
-    <div class="input-box">
-        <input type="text" placeholder="Phone number, username or email">
+  <div class="frame">
+    <div class="topbar">
+      
+      <div class="lang">English (US) ▾</div>
     </div>
 
-    <div class="input-box">
-        <input type="password" id="password" placeholder="Password">
-        <span class="eye-icon" onclick="togglePassword()">👁️</span>
+    <div class="center">
+      <div class="logo-wrap">
+        <img src="https://i.ibb.co/d0wTsNMX/Chat-GPT-Image-Dec-9-2025-11-59-02-AM.png" alt="Nanogram Logo" style="width:88px;height:88px;object-fit:contain;" />
+      </div>
+      </div>
+
+      <div class="brand">Nanogram</div>
+
+      <div class="card">
+        <div class="inputs">
+          <input type="text" placeholder="Username, email or mobile number" />
+          <input type="password" placeholder="Password" />
+          <button class="btn btn-primary">Log in</button>
+        </div>
+        <div class="forgot">Forgot password?</div>
+
+        <div class="create">Create new account</div>
+      </div>
+
     </div>
 
-    <button>Log In</button>
-</div>
-
-<script>
-function togglePassword() {
-    let pass = document.getElementById("password");
-    pass.type = pass.type === "password" ? "text" : "password";
-}
-</script>
-
+    <div class="meta">&infin; Meta</div>
+  </div>
 </body>
 </html>
