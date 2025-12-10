@@ -3,21 +3,19 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-<title>Mobile Full Screen Login</title>
+<title>Bigger UI Login</title>
 
 <style>
-  /* Prevent bounce + safe area for notch devices */
   body {
     margin: 0;
     padding: 0;
     background: #0f1115;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    height: 100svh; /* Best for Mobile fullscreen */
+    height: 100svh;
     width: 100vw;
     display: flex;
   }
 
-  /* FULL SCREEN CARD */
   .card {
     width: 100vw;
     height: 100svh;
@@ -26,7 +24,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: env(safe-area-inset-top) 24px env(safe-area-inset-bottom) 24px;
+    padding: env(safe-area-inset-top) 26px env(safe-area-inset-bottom) 26px;
     box-sizing: border-box;
     animation: fadeIn 0.6s ease-out;
   }
@@ -36,20 +34,22 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
+  /* BIGGER LOGO */
   .insta-logo {
-    width: 90px;
-    max-width: 28vw;
-    margin-bottom: 28px;
+    width: 120px;
+    max-width: 33vw;
+    margin-bottom: 35px;
   }
 
+  /* BIGGER INPUTS */
   input {
     width: 100%;
-    max-width: 360px;
-    padding: 15px;
-    margin-top: 14px;
-    font-size: 16px;
-    border-radius: 12px;
-    border: 1px solid #2b2e36;
+    max-width: 400px;
+    padding: 18px;
+    margin-top: 18px;
+    font-size: 18px;
+    border-radius: 14px;
+    border: 1.8px solid #2b2e36;
     background: #21242d;
     color: white;
     transition: 0.2s ease;
@@ -59,22 +59,23 @@
     border-color: #0095f6;
     background: #272b34;
     outline: none;
-    box-shadow: 0 0 10px rgba(0, 149, 246, 0.35);
+    box-shadow: 0 0 12px rgba(0, 149, 246, 0.35);
   }
 
+  /* BIGGER LOGIN BUTTON */
   .login-btn {
     width: 100%;
-    max-width: 360px;
-    padding: 15px;
-    margin-top: 22px;
+    max-width: 400px;
+    padding: 18px;
+    margin-top: 26px;
     background: linear-gradient(135deg, #0095f6, #006fe3);
     border: none;
-    border-radius: 14px;
+    border-radius: 16px;
     color: white;
-    font-size: 17px;
-    font-weight: 600;
+    font-size: 19px;
+    font-weight: 700;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 149, 246, 0.4);
+    box-shadow: 0 4px 18px rgba(0, 149, 246, 0.45);
     transition: 0.2s ease;
   }
 
@@ -83,58 +84,38 @@
   }
 
   .link {
-    margin-top: 16px;
+    margin-top: 18px;
     text-decoration: none;
     color: #9eb8ff;
-    font-size: 15px;
+    font-size: 17px;
   }
 
+  /* BIGGER CREATE ACCOUNT BUTTON */
   .create-btn {
     width: 100%;
-    max-width: 360px;
-    padding: 15px;
-    margin-top: 26px;
+    max-width: 400px;
+    padding: 18px;
+    margin-top: 32px;
     background: transparent;
-    border-radius: 14px;
-    border: 1px solid #3c404b;
+    border-radius: 16px;
+    border: 1.5px solid #3c404b;
     color: #00a2ff;
-    font-weight: 600;
-    font-size: 16px;
+    font-weight: 700;
+    font-size: 18px;
     cursor: pointer;
     transition: 0.25s ease;
   }
 
   .meta {
-    margin-top: 26px;
-    font-size: 14px;
-    opacity: 0.55;
-    letter-spacing: 1px;
+    margin-top: 30px;
+    font-size: 16px;
+    opacity: 0.60;
+    letter-spacing: 1.3px;
   }
 
-  /* EXTRA MOBILE OPTIMIZATION */
-  @media (max-width: 420px) {
-    input, .login-btn, .create-btn {
-      font-size: 15px;
-      padding: 13px;
-    }
-    .insta-logo {
-      width: 75px;
-      margin-bottom: 22px;
-    }
-  }
-
-  @media (max-width: 340px) {
-    input, .login-btn, .create-btn {
-      font-size: 14px;
-      padding: 12px;
-    }
-    .insta-logo {
-      width: 65px;
-    }
-  }
 </style>
-
 </head>
+
 <body>
 
 <div class="card">
